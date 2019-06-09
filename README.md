@@ -5,7 +5,9 @@ manpages.
 
 ## Install
 
+```
 zef install Pod::To::Man
+```
 
 ## Sysopsis
 
