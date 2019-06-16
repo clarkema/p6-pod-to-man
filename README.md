@@ -26,3 +26,8 @@ for some of my scripts than the plain text formatter.
 
 Issues / patches / pull requests / Roff formatting suggestions are
 all extremely welcome.
+
+## Resources
+
+* http://www.openbsd.org/papers/eurobsdcon2014-mandoc-slides.pdf
+* http://mandoc.bsd.lv/man/man.7.html
