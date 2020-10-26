@@ -4,13 +4,21 @@ sub escape($s) {
     $s.subst(:g, /\-/, Q'\-');
 }
 
-sub head2man($heading) {
+sub head2man($heading, :$level) {
 
-    qq[.SH "{$heading.uc.&escape}"\n]
+    my $type = 'SH';
+    if $level > 1
+    {
+        $type = 'SS';
+    }
+
+    qq[.$type "{$heading.uc.&escape}"\n]
 }
 
 multi sub pod2man(Pod::Heading $pod) {
-    "\\fB" ~ $pod.contents>>.&pod2man.join ~ "\\fR";
+    return head2man($pod.contents>>.&pod2man.join,
+        level => $pod.level
+    );
 }
 multi sub pod2man(Pod::Block::Named $pod) {
     given $pod.name {
